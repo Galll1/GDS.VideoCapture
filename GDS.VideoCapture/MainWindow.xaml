@@ -1,0 +1,35 @@
+﻿<Window x:Class="GDS.VideoCapture.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VideoCapture"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="32"/>
+        </Grid.RowDefinitions>
+        
+        <Image Grid.Row="0" Grid.Column="0" 
+               Grid.ColumnSpan="2"
+               Name="videoHolder" 
+               HorizontalAlignment="Stretch"  
+               VerticalAlignment="Stretch" 
+               Stretch="Fill"/>
+
+        <Button Grid.Row="1" Grid.Column="0" 
+                Name="startRecording"
+                Content="Start Rec"
+                Click="startRecording_Click"/>
+        <Button Grid.Row="1" Grid.Column="1" 
+                Name="stopRecording" 
+                Content="Stop Rec"
+                Click="stopRecording_Click"/>
+    </Grid>
+</Window>
