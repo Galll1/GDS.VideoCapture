@@ -5,6 +5,7 @@ using Accord.DirectSound;
 using System.Collections.Generic;
 using Accord.Imaging.Filters;
 using GDS.VideoCapture.Core.Capturing;
+using GDS.VideoCapture.Core.Broadcasting;
 
 namespace GDS.VideoCapture.Core
 {
@@ -18,6 +19,8 @@ namespace GDS.VideoCapture.Core
         private AudioCaptureDevice audioCaptureDevice;
         private IEnumerable<IAudioCapturingOutput> audioCaptureOutputs;
 
+        private VideoOutputBroadcaster videoOutputBroadcaster;
+
         public Capturer(params ICapturingOutput[] capturingOutputs)
         {
             FilterCapturers(capturingOutputs);
@@ -30,7 +33,7 @@ namespace GDS.VideoCapture.Core
         {
             if(capturingOutputs == null)
             {
-                throw new ArgumentNullException("Outputs cannot be null Outputs!");
+                throw new ArgumentNullException("Outputs cannot be null!");
             }
 
             List<IVideoCapturingOutput> videoCaptureOutputsFiltered = new List<IVideoCapturingOutput>();
@@ -54,16 +57,17 @@ namespace GDS.VideoCapture.Core
 
         void CaptureVideoDeviceNewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            System.Drawing.Bitmap frame = (System.Drawing.Bitmap)eventArgs.Frame.Clone();
+            videoOutputBroadcaster.Broadcast((System.Drawing.Bitmap)eventArgs.Frame.Clone());
+            //System.Drawing.Bitmap frame = (System.Drawing.Bitmap)eventArgs.Frame.Clone();
 
-            BilateralSmoothing conservativeSmoothingFilter = new BilateralSmoothing();
+            //BilateralSmoothing conservativeSmoothingFilter = new BilateralSmoothing();
 
-            conservativeSmoothingFilter.ApplyInPlace(frame);
+            //conservativeSmoothingFilter.ApplyInPlace(frame);
 
-            foreach (IVideoCapturingOutput capturingOutput in videoCaptureOutputs)
-            {
-                capturingOutput.VideoOutputMethod(frame);
-            }
+            //foreach (IVideoCapturingOutput capturingOutput in videoCaptureOutputs)
+            //{
+            //    capturingOutput.VideoOutputMethod(frame);
+            //}
         }
 
         private void AudioCaptureDeviceNewFrame(object sender, Accord.Audio.NewFrameEventArgs eventArgs)
@@ -80,6 +84,8 @@ namespace GDS.VideoCapture.Core
             {
                 return;
             }
+
+            videoOutputBroadcaster = new VideoOutputBroadcaster(videoCaptureOutputs);
 
             videoCaptureDevice = new VideoCaptureDevice(videoCaptureDevices[0].MonikerString);
 

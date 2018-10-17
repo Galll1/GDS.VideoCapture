@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GDS.VideoCapture", "GDS.Vid
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GDS.VideoCapture.Core", "GDS.VideoCapture.Core\GDS.VideoCapture.Core.csproj", "{16AC9F16-A4C9-4584-BDE9-180174C2C3BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GDS.VideoCapture.Processing", "GDS.VideoCapture.Processing\GDS.VideoCapture.Processing.csproj", "{4C97E240-3C54-4023-B445-775E139FE7E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,14 @@ Global
 		{16AC9F16-A4C9-4584-BDE9-180174C2C3BE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{16AC9F16-A4C9-4584-BDE9-180174C2C3BE}.Release|x86.ActiveCfg = Release|Any CPU
 		{16AC9F16-A4C9-4584-BDE9-180174C2C3BE}.Release|x86.Build.0 = Release|Any CPU
+		{4C97E240-3C54-4023-B445-775E139FE7E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C97E240-3C54-4023-B445-775E139FE7E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C97E240-3C54-4023-B445-775E139FE7E1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4C97E240-3C54-4023-B445-775E139FE7E1}.Debug|x86.Build.0 = Debug|Any CPU
+		{4C97E240-3C54-4023-B445-775E139FE7E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C97E240-3C54-4023-B445-775E139FE7E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C97E240-3C54-4023-B445-775E139FE7E1}.Release|x86.ActiveCfg = Release|Any CPU
+		{4C97E240-3C54-4023-B445-775E139FE7E1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

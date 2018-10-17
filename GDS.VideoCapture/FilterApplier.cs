@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GDS.VideoCapture
+namespace GDS.VideoCapture.Processing
 {
     public class FilterApplier
     {

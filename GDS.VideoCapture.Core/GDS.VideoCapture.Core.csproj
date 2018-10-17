@@ -82,6 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Broadcasting\VideoOutputBroadcaster.cs" />
     <Compile Include="Capturing\IAudioCapturingOutput.cs" />
     <Compile Include="Capturing\ICapturingOutput.cs" />
     <Compile Include="Capturing\Implementations\AudioCapturingOutputToDevice.cs" />
@@ -97,6 +98,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GDS.VideoCapture.Processing\GDS.VideoCapture.Processing.csproj">
+      <Project>{4c97e240-3c54-4023-b445-775e139fe7e1}</Project>
+      <Name>GDS.VideoCapture.Processing</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\GDS.VideoCapture\packages\Accord.3.8.0\build\Accord.targets" Condition="Exists('..\GDS.VideoCapture\packages\Accord.3.8.0\build\Accord.targets')" />
